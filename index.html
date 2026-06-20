@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stray Kids Universe</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Noto Sans KR','맑은 고딕',sans-serif;color:#eaf9ff;background:#000;line-height:1.6}
+    a{color:#aee6ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* 인트로 */
+   header.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url("https://i.pinimg.com/474x/91/5c/5b/915c5b2352a376ec6776b5b020822b9b.jpg") center/cover no-repeat;
+}
+
+
+
+
+    .intro-title {
+  font-size: 40px;
+  color: #e8fbff; /* 더 밝은 하늘색-흰색 계열 */
+  text-shadow: 0 0 10px #aef3ff, 0 0 25px #74e2ff, 0 0 45px #4dd9ff; /* 더 선명한 네온 느낌 */
+  margin-bottom: 22px;
+}
+
+    .enter{display:inline-flex;align-items:center;gap:10px;background:rgba(150,240,255,.15);border:1px solid rgba(255,255,255,.35);padding:10px 18px;border-radius:28px;transition:.3s}
+    .enter:hover{background:rgba(185,255,255,.25);box-shadow:0 0 18px rgba(170,240,255,.55)}
+    .enter img{width:160px;height:auto;display:block}
+
+    /* 네비게이션 */
+    nav.navbar{position:sticky;top:0;background:rgba(20,30,40,.9);padding:10px 0;z-index:10}
+    nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;gap:20px}
+    nav a{font-weight:700}
+
+    /* 메인 */
+    section#main{
+      min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 20px;text-align:center;
+      background:url("https://i.pinimg.com/1200x/dd/eb/e8/ddebe82516c7daf4675df008c683d2c2.jpg") center/cover no-repeat fixed
+    }
+    .icon-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));width:min(1100px,92vw)}
+    .icon{display:flex;flex-direction:column;align-items:center}
+    .icon img{width:180px;height:180px;object-fit:cover;border-radius:20px;box-shadow:0 0 14px rgba(170,230,255,.65);transition:.35s}
+    .icon img:hover{transform:scale(1.06);box-shadow:0 0 28px rgba(200,245,255,.9)}
+    .icon p { margin-top: 10px;font-weight: 700;color: #b8eeff; 
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7); 
+}
+
+
+    /* 공통 */
+    section.block{padding:80px 20px;text-align:center}
+    h2{font-size:32px;margin-bottom:24px;color:#c9f3ff;text-shadow:0 0 12px #77dfff}
+    .wrap{width:min(1100px,92vw);margin:0 auto}
+
+    /* 대표곡 */
+    #songs{
+      background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url("https://i.pinimg.com/1200x/dd/eb/e8/ddebe82516c7daf4675df008c683d2c2.jpg") center/cover no-repeat fixed
+    }
+    .album-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+    .album-grid img{width:100%;height:200px;object-fit:cover;border-radius:12px;transition:.3s;box-shadow:0 0 14px rgba(180,240,255,.4)}
+    .album-grid img:hover{transform:scale(1.05)}
+    .album-grid figcaption{margin-top:8px}
+
+    /* 멤버 대표사진 */
+    #members{
+      background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),url("https://i.pinimg.com/1200x/5a/62/1b/5a621b1ab7606b2b4680330e609cbb2a.jpg") center/cover no-repeat fixed
+    }
+    .member-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .member-grid a{display:block;background:rgba(255,255,255,.06);border-radius:14px;padding:12px;transition:.3s}
+    .member-grid a:hover{transform:translateY(-4px);background:rgba(255,255,255,.1)}
+    .member-grid img{width:100%;height:240px;object-fit:cover;border-radius:10px;box-shadow:0 0 10px rgba(200,240,255,.4)}
+    .member-grid h3{margin:10px 0 4px;color:#d6fbff}
+
+    /* 멤버 상세 */
+    .person{padding:70px 20px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.55)}
+    .person .pf{display:grid;gap:18px;grid-template-columns:240px 1fr;align-items:start}
+    .person .pf img{width:100%;height:240px;object-fit:cover;border-radius:12px}
+    .person h3{font-size:26px;margin-bottom:6px;color:#cfefff}
+    .person p{margin:6px 0}
+
+    /* STAY */
+    #stay{
+      background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url("https://i.pinimg.com/1200x/98/fb/b6/98fbb6b46faa02e3f979c66d1c1d29ca.jpg") center/cover no-repeat fixed
+    }
+    .stay-text{max-width:800px;margin:0 auto 20px}
+    .stay-pics{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+    .stay-pics img{width:280px;border-radius:16px;box-shadow:0 0 16px rgba(160,230,255,.5)}
+
+    /* 그룹 */
+    #about{
+      background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),url("https://i.pinimg.com/736x/c5/20/b0/c520b0f8876ae7866d47622e79927954.jpg") center/cover no-repeat fixed
+    }
+    .logo{width:120px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4));margin-bottom:10px}
+    .gallery{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .gallery img{width:100%;height:240px;object-fit:cover;border-radius:12px}
+    .racha{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:16px}
+    .racha img{width:100%;height:240px;object-fit:cover;border-radius:12px}
+    .racha figcaption{margin-top:8px;color:#d9f7ff}
+
+    footer{background:rgba(20,30,40,.82);color:#bfefff;text-align:center;padding:22px 10px;margin-top:40px;text-shadow:0 0 10px #84e0ff}
+    footer .links{margin-top:6px;font-size:15px}
+
+    @media (max-width:768px){
+      .intro-title{font-size:30px}
+      .person .pf{grid-template-columns:1fr}
+      .album-grid img{height:170px}
+      .member-grid img{height:200px}
+    }
+  </style>
+</head>
+<body>
+
+  <header id="intro" class="intro">
+  <h1 class="intro-title">Welcome to Stray Kids Universe</h1>
+  <a class="enter" href="#main" aria-label="시작하기">
+    <img src="https://i.postimg.cc/jqgyJRzS/daunlodeu-16.jpg" alt="시작하기 버튼">
+  </a>
+</header>
+
+
+
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="#main">메인</a></li>
+      <li><a href="#songs">대표곡</a></li>
+      <li><a href="#members">멤버</a></li>
+      <li><a href="#stay">STAY</a></li>
+      <li><a href="#about">Stray Kids</a></li>
+    </ul>
+  </nav>
+
+  <section id="main">
+  <div class="icon-grid">
+    <div class="icon">
+      <a href="#members">
+        <img src="https://i.postimg.cc/3xRRMtYD/daunlodeu-2.jpg" alt="Members">
+        <p>Members</p>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="#songs">
+        <img src="https://i.postimg.cc/BvjXFMzq/cvr.jpg" alt="Songs">
+        <p>Songs</p>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="#stay">
+        <img src="https://i.postimg.cc/jdR2cs1Q/daunlodeu-1.jpg" alt="STAY">
+        <p>STAY</p>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="#about">
+        <img src="https://i.postimg.cc/Jnw4kmJs/frutiger-aero-wallpaper.jpg" alt="Stray Kids">
+        <p>Stray Kids</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <section id="songs" class="block">
+    <h2>대표곡 소개</h2>
+    <div class="wrap">
+      <div class="album-grid">
+        <figure><img src="images/Hellevator.jpg" alt="Hellevator"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=AdfIfFGCqgo">Hellevator</a></figcaption></figure>
+        <figure><img src="images/go.jpg" alt="신메뉴"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=TQTlCHxyuu8">신메뉴</a></figcaption></figure>
+        <figure><img src="images/In.jpg" alt="Back Door"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=X-uJtV8ScYk">Back Door</a></figcaption></figure>
+        <figure><img src="images/Noeasy.jpg" alt="소리꾼"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=X-uJtV8ScYk">소리꾼</a></figcaption></figure>
+        <figure><img src="images/Maniac.jpg" alt="MANIAC"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=OvioeS1ZZ7o">MANIAC</a></figcaption></figure>
+        <figure><img src="images/Case143.jpg" alt="CASE 143"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=jYSlpC6Ud2A">CASE 143</a></figcaption></figure>
+        <figure><img src="images/Star.jpg" alt="S-Class"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=JsOOis4bBFg">S-Class</a></figcaption></figure>
+        <figure><img src="images/lalala.jpg" alt="락(樂)"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=dBDkYofMUs4">락(樂)</a></figcaption></figure>
+        <figure><img src="images/Ate.jpg" alt="Chk Chk Boom"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=0P0aQreFs8w">Chk Chk Boom</a></figcaption></figure>
+        <figure><img src="images/hop.jpg" alt="Walkin on Water"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=ovHoY8UBIu8">Walkin on Water</a></figcaption></figure>
+        <figure><img src="images/Karma.jpg" alt="CEREMONY"><figcaption><a target="_blank" href="https://www.youtube.com/watch?v=P7vBoGWoReg">CEREMONY</a></figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <section id="members" class="block">
+    <h2>멤버</h2>
+    <div class="wrap">
+      <div class="member-grid">
+        <a href="#bangchan"><img src="https://i.pinimg.com/1200x/f8/b4/12/f8b4128d599827468ee3ea9e3b21f38c.jpg" alt="방찬"><h3>방찬</h3></a>
+        <a href="#leeknow"><img src="https://i.pinimg.com/736x/ae/0c/e7/ae0ce7155ebdf19b21c9226c0c0a3eb6.jpg" alt="리노"><h3>리노</h3></a>
+        <a href="#changbin"><img src="https://i.pinimg.com/736x/64/52/82/645282dcc2be80f6847d944758b656b1.jpg" alt="창빈"><h3>창빈</h3></a>
+        <a href="#hyunjin"><img src="https://i.pinimg.com/736x/b5/aa/19/b5aa199abd09bca3bffef2a2dd6d0891.jpg" alt="현진"><h3>현진</h3></a>
+        <a href="#han"><img src="https://i.pinimg.com/736x/0a/90/56/0a9056c054c2fdecf6f3ee0fcd727e9e.jpg" alt="한"><h3>한</h3></a>
+        <a href="#felix"><img src="https://i.pinimg.com/1200x/ba/aa/f4/baaaf45bc9bc549c5d6e89d97bf00292.jpg" alt="필릭스"><h3>필릭스</h3></a>
+        <a href="#seungmin"><img src="https://i.pinimg.com/736x/d9/c6/09/d9c609049c65c0436851c4c2f38546e0.jpg" alt="승민"><h3>승민</h3></a>
+        <a href="#in"><img src="https://i.pinimg.com/736x/ea/44/8b/ea448b71872607b44a71f468541eabc8.jpg" alt="아이엔"><h3>아이엔</h3></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 멤버 상세 -->
+  <section id="bangchan" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.pinimg.com/736x/0d/66/2d/0d662d093a1491c14be0500ceaf3bb0c.jpg" alt="방찬">
+    <div><h3>방찬 🐺</h3><p>리더이자 프로듀서. 솔로곡 Railway는 내면의 여정을 담은 곡이다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=stqF3nUYWyI">Railway</a></p></div></div></div></section>
+
+  <section id="leeknow" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.postimg.cc/15wg41PB/Lee-Know.jpg" alt="리노">
+    <div><h3>리노 🐰</h3><p>절도 있는 퍼포먼스가 강점. 솔로곡 Youth는 성장의 고민을 담았다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=SHbAWniC_j8">Youth</a></p></div></div></div></section>
+
+  <section id="changbin" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.pinimg.com/1200x/1e/0f/e0/1e0fe0eac347b7dd08e671d5696bfff9.jpg" alt="창빈">
+    <div><h3>창빈 🐷</h3><p>강렬한 랩과 작사로 팀의 에너지를 끌어올린다. 솔로곡 Ultra는 자신감 있는 태도를 보여준다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=CMaWRczUy-k">Ultra</a></p></div></div></div></section>
+
+  <section id="hyunjin" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.pinimg.com/1200x/72/3d/1e/723d1e66b6ddba1a0b45e2f54380c034.jpg" alt="현진">
+    <div><h3>현진 🦦</h3><p>감정 표현이 뛰어난 퍼포머. 솔로곡 So Good은 무드와 디테일이 돋보인다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=X1STCX8-7qE">So Good</a></p></div></div></div></section>
+
+  <section id="han" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.pinimg.com/736x/70/c2/db/70c2db5b60a8391b518450a989adf906.jpg" alt="한">
+    <div><h3>한 🐿️</h3><p>작사·작곡·랩·보컬을 모두 소화하는 올라운더. Don't Say는 섬세한 가사와 보컬이 돋보인다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=wnEJinE9qRI">Don't Say</a></p></div></div></div></section>
+
+  <section id="felix" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.pinimg.com/736x/95/f9/ec/95f9ec2133c2998b9164a72ded8320ad.jpg" alt="필릭스">
+    <div><h3>필릭스 🐣</h3><p>낮고 따뜻한 보이스로 분위기를 채운다. Unfair는 잔잔한 감성이 살아있는 곡이다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=miZylLFiSzo">Unfair</a></p></div></div></div></section>
+
+  <section id="seungmin" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.pinimg.com/736x/08/2a/72/082a726c70f14ce7eb758833344e70fe.jpg" alt="승민">
+    <div><h3>승민 🐶</h3><p>맑고 안정적인 톤의 메인 보컬. As We Are는 진심을 담은 발라드다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=mQo_SzrY57M">As We Are</a></p></div></div></div></section>
+
+  <section id="in" class="person"><div class="wrap"><div class="pf">
+    <img src="https://i.postimg.cc/tRPRNdfV/25d50a9cbe5a76d920f4e0a40f83ca20.jpg" alt="아이엔">
+    <div><h3>아이엔 🦊</h3><p>밝은 에너지의 보컬. Hallucination은 몽환적인 분위기를 담은 솔로곡이다.</p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=0wisMy0Ufmw">Hallucination</a></p></div></div></div></section>
+
+  <section id="stay" class="block">
+    <h2>STAY 💙</h2>
+    <div class="wrap">
+      <p class="stay-text">STAY는 Stray Kids와 여정을 함께하는 팬을 의미한다.</p>
+      <div class="stay-pics">
+        <img src="https://i.postimg.cc/1zpMKjpf/daunlodeu-10.jpg" alt="응원봉">
+        <img src="https://i.postimg.cc/GmDjc5gq/daunlodeu-11.jpg" alt="SKZOO 인형">
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="block">
+    <h2>Stray Kids</h2>
+    <div class="wrap">
+      <img class="logo" src="https://i.pinimg.com/1200x/cb/6d/89/cb6d8912f791e14c173424275ca5d62c.jpg" alt="로고">
+      <div class="gallery">
+        <img src="https://i.pinimg.com/1200x/5e/1e/83/5e1e831f9fd7fd9a7ef3d62adcd07a28.jpg" alt="락 비하인드">
+
+        <img src="https://i.pinimg.com/736x/a6/bc/cb/a6bccbc2e5ba53c749e4e345196b3403.jpg" alt="단체 사진">
+        <img src="https://i.pinimg.com/736x/77/77/6f/77776f01394d7b87fe8dd6055c123c3a.jpg" alt="단체 무대">
+      </div>
+      <div class="racha">
+        <figure><img src="https://i.pinimg.com/1200x/77/0e/47/770e479e9953c4280ed1a010953ffcb0.jpg" alt="3RACHA"><figcaption>3RACHA — 방찬·창빈·한</figcaption></figure>
+        <figure><img src="https://i.postimg.cc/vHkpqC60/daunlodeu-14.jpg" alt="DANCERACHA"><figcaption>DANCERACHA — 리노·현진·필릭스</figcaption></figure>
+        <figure><figure><img src="https://i.pinimg.com/1200x/f4/79/cf/f479cf7bd5108cb08319d7868fce4b6f.jpg" alt="VOCALRACHA"><figcaption>VOCALRACHA — 승민·아이엔</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made by 안혜림 ✦ With love for STAY 💙</p>
+    <p>Stray Kids Everywhere All Around the World 🌍</p>
+    <div class="links">
+      <a target="_blank" href="https://www.youtube.com/@StrayKids">YouTube</a> |
+      <a target="_blank" href="https://www.instagram.com/realstraykids/">Instagram</a>
+    </div>
+  </footer>
+
+<script src="pageController.js"></script>
+
+</body>
+</html>
